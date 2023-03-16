@@ -1,0 +1,11 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col col-lg-4 p-2" *ngFor="let item of single ">
+<div class="card " style="width: 18rem; margin-top: 20px;;" >
+    <img src="{{item.img}}" class="card-img-top" alt="..." style="height: 300px; width: auto;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+      <p>{{item.price | currency:'INR'}}</p>
+      <a class="btn btn-outline-dark" (click)="buyNow(item.id)">Buy Now</a>
+    </div>
+  </div>
