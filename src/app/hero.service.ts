@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { setDoc,doc } from '@firebase/firestore';
 import { addDoc, Firestore } from '@angular/fire/firestore';
@@ -41,6 +41,16 @@ constructor(private auth:Auth,private router:Router,private hero:Firestore){}
         this.router.navigate(['/signup']);
           
 
+    })
+
+  }
+  //login method
+  login(email:string,password:string){
+    signInWithEmailAndPassword(this.auth,email,password).then((res) =>{
+      alert("Login successfully")
+      this.router.navigate(['/login'])
+    }).catch(err =>{
+      alert(err)
     })
 
   }
