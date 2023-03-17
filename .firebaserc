@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tool-garage": {
+      "hosting": {
+        "construction": [
+          "tool-garage"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tool-garage"
+  }
+}
