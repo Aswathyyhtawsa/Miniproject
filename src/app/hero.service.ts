@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { setDoc,doc } from '@firebase/firestore';
-import { addDoc, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 import { data, hammer,ladder,spade,chisel, Trowel, Circularsaw, Drillmachine, Wheelbarrow ,Handsaw} from 'src/assets/data';
 
 
@@ -14,7 +14,7 @@ export class HeroService {
 constructor(private auth:Auth,private router:Router,private hero:Firestore){}
 
   //signup
-  signup(fullname:string,username:string,email:string,phone:string,password:string){
+  signup(fullname:string,username:string,email:string,phone:string,password:string,confirm:string){
     createUserWithEmailAndPassword(this.auth,email,password).then((res) =>{
       const uid = res.user.uid
       const email = res.user.email
@@ -23,7 +23,8 @@ constructor(private auth:Auth,private router:Router,private hero:Firestore){}
         username: username,
         email: email,
         phone: phone,
-        password: password
+        password: password,
+        confirm: confirm
        }
        const docRef = doc(this.hero, "users", uid)
        setDoc(docRef,user).then(() => {
@@ -53,7 +54,6 @@ constructor(private auth:Auth,private router:Router,private hero:Firestore){}
     })
 
   }
-
 
   giveHandSawData() {
     return Handsaw

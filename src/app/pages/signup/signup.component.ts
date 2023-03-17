@@ -15,15 +15,17 @@ constructor(private fs:HeroService){
   email:string=''
   phone:string=''
   password:string=''
+  confirm:string=''
 
 signup(){
 
-  this.fs.signup(this.fullname,this.username,this.email,this.phone,this.password)
+  this.fs.signup(this.fullname,this.username,this.email,this.phone,this.password,this.confirm)
   this.email=''
   this.fullname=''
   this.username=''
   this.phone=''
   this.password=''
+  this.confirm=''
 }
 
 }
