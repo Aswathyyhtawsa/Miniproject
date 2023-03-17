@@ -3,7 +3,6 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from
 import { Router } from '@angular/router';
 import { setDoc,doc } from '@firebase/firestore';
 import { addDoc, Firestore } from '@angular/fire/firestore';
-
 import { data, hammer,ladder,spade,chisel, Trowel, Circularsaw, Drillmachine, Wheelbarrow ,Handsaw} from 'src/assets/data';
 
 
