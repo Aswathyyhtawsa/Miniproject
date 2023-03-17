@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { setDoc,doc } from '@firebase/firestore';
-import { Firestore } from '@angular/fire/firestore';
+import { addDoc, Firestore } from '@angular/fire/firestore';
 
 import { data, hammer,ladder,spade,chisel, Trowel, Circularsaw, Drillmachine, Wheelbarrow ,Handsaw} from 'src/assets/data';
 
@@ -78,5 +78,10 @@ giveWheelbarrowData(){
 }
 giveHandsawData(){
   return Handsaw
+}
+insertData(docRef:any,data:any)
+{
+
+addDoc(docRef,data).then(()=>{alert("Data added successfully")}).catch((err)=>alert(err))
 }
 }
