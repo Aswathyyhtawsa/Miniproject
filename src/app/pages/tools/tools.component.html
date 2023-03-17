@@ -1,10 +1,12 @@
-<div class="container text-center">
-    <div class="row">
-      <div class="col col-lg-4" *ngFor="let item of data">
-<div class="card" style="width: 18rem; margin-top: 20px;" >
-    <img src="{{item.img}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
-      <a (click)="gotoHere(item.title)" class="btn btn-outline-dark">{{item.button}}</a>
-    </div>
+<div class="wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); grid-gap: 20px;">
+  <div class="card" *ngFor="let item of data">
+    <img [src]="item.img" />
+    <div class="info">
+      <h1>{{item.title}}</h1>
+      <!-- <button routerLink="/units/recipe">READ MORE</button> -->
+      <!-- <button [routerLink]="['/units/recipe', i.id]">READ MORE</button> -->
+      <button (click)="gotoHere(item.title)">view more</button>        
+
+      </div>
   </div>
+</div>
